@@ -2,16 +2,26 @@
 import { pool } from '../config/database';
 import { Excursao } from '../types';
 
+function mapRowToExcursao(row: any): Excursao{
+  return{
+    id: row.id,
+    nome: row.nome,
+    dataEvento: row.data_evento,
+    valorCentavos: row.valor_centavos,
+    vagasTotais: row.vagas_totais,
+    vagasDisponiveis: row.vagas_disponiveis,
+  };
+}
+
 export const excursoesRepository = {
   async listarTodas(){
     const { rows } = await pool.query(`SELECT id, nome, data_evento, valor_centavos, vagas_totais, vagas_disponiveis FROM excursoes`);
-    // console.log(rows);
-    return rows;
+    return rows ? rows.map((r)=>mapRowToExcursao(r)): null;
   },
 
   async buscarPorId(id: string): Promise<Excursao | null> {
     const { rows } = await pool.query('SELECT * FROM excursoes WHERE id = $1', [id]);
-    return rows[0] ?? null;
+    return rows[0] ? mapRowToExcursao(rows[0]) : null;
   },
 
   async decrementarVaga(id: string): Promise<void> {
