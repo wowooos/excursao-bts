@@ -6,4 +6,9 @@ export const excursoesService = {
     if (!excursao) throw new Error('Excursão não encontrada');
     return excursao;
   },
+
+  async listarTodas(){
+    const rows = await excursoesRepository.listarTodas();
+    return rows;
+  }
 };

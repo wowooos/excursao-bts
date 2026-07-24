@@ -3,6 +3,12 @@ import { pool } from '../config/database';
 import { Excursao } from '../types';
 
 export const excursoesRepository = {
+  async listarTodas(){
+    const { rows } = await pool.query(`SELECT id, nome, data_evento, valor_centavos, vagas_totais, vagas_disponiveis FROM excursoes`);
+    // console.log(rows);
+    return rows;
+  },
+
   async buscarPorId(id: string): Promise<Excursao | null> {
     const { rows } = await pool.query('SELECT * FROM excursoes WHERE id = $1', [id]);
     return rows[0] ?? null;

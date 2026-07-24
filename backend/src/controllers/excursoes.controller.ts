@@ -6,4 +6,9 @@ export const excursoesController = {
     const excursao = await excursoesService.buscarDetalhes(req.params.id);
     res.json(excursao);
   },
+
+  async listar(req: Request, res: Response){
+    const rows = await excursoesService.listarTodas();
+    res.json(rows);
+  }
 };
