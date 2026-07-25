@@ -15,6 +15,9 @@ export interface Excursao {
   id: string;
   nome: string;
   dataEvento: string;
+  localEmbarque: string;
+  horarioEmbarque: string;
+  destino: string;
   valorCentavos: number;
   vagasTotais: number;
   vagasDisponiveis: number;
