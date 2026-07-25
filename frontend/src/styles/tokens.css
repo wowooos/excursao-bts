@@ -1,0 +1,34 @@
+/* src/styles/tokens.css */
+:root {
+  /* cores */
+  --color-bg: #1B1730;
+  --color-ticket: #FBF3E7;
+  --color-accent: #6B46E0;
+  --color-cta: #F2A93B;
+  --color-text-muted: #6E6580;
+
+  /* fontes */
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* fontes - tamanho */
+  --font-size-caption: 0.75rem;  /* 12px - labels pequenos, tipo "vagas" */
+  --font-size-body: 0.875rem;    /* 14px - texto padrão */
+  --font-size-heading: 1.25rem;  /* 20px - títulos de card/seção */
+  --font-size-display: 1.5rem;   /* 24px - título grande da página */
+
+  /* spacing (padding, margin, gap, width, height) */
+  --space-2xs: 0.25rem;  /* 4px - gaps apertados, ex: ícone + texto */
+  --space-xs: 0.5rem;    /* 8px */
+  --space-sm: 1rem;      /* 16px */
+  --space-md: 1.5rem;    /* 24px */
+  --space-lg: 2rem;      /* 32px */
+  --space-xl: 2.5rem;    /* 40px */
+  --space-2xl: 3rem;     /* 48px */
+  --space-3xl: 3.5rem;   /* 56px */
+  --space-4xl: 4rem;     /* 64px */
+
+  /* área mínima p/ botões */
+  --touch-target-min: 44px;
+}
