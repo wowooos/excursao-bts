@@ -115,7 +115,7 @@ export const NavPages = styled.ul<{$aberto:boolean}>`
 
   padding: 0.5rem;
   display:flex;
-  gap: 1rem;
+  gap: 0.5rem;
 
   @media (max-width: 768px){
     transition: visibility 0.3s;
@@ -152,27 +152,43 @@ export const NavPages = styled.ul<{$aberto:boolean}>`
 `;
 
 export const NavLink = styled(Link)`
+  padding: var(--space-xs);
+
   font-family: var(--font-body);
   font-size: var(--font-size-body);
   font-weight: var(--font-weight-medium);
 
   color: var(--color-text-secundario);
 
+  border-bottom: 2px solid transparent;
+  transition: color 0.5s ease, border-bottom-color 0.5s ease; /** a transition se aplica tanto ao hover padrão quanto ao hover mobile */
+  &:hover{
+    color: var(--color-brand-secundaria);
+    border-bottom-color: #DC143C;
+  }
+
   @media (max-width: 768px){
+    padding: 0;
     min-height: 45px;
   
     display: flex;
     justify-content: center;
     align-items: center;
+
+    &:hover{
+      color: var(--color-brand-secundaria);
+      border-bottom-color: transparent;
+    }
   }
 `;
 
 export const ItemNav = styled.li`
   @media (max-width: 768px){
-    border-bottom: 1px solid var(--color-border-default);
-
+    border-bottom: 2px solid var(--color-border-default);
+    
     &:last-child{
-      border-bottom: none;
+      border-bottom: 2px solid transparent;
     }
+
   }
 `;
