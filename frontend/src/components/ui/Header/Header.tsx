@@ -9,7 +9,7 @@ export function Header() {
         <NomeSite to="/">Vampi Excursões</NomeSite>
         <Nav>
 
-          <NavPages>
+          <NavPages $aberto={menuAberto}>
             <ItemNav><NavLink to="/">Destinos</NavLink></ItemNav>
             <ItemNav><NavLink to="#contato">Contato</NavLink></ItemNav>
           </NavPages>

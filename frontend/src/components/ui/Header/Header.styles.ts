@@ -1,5 +1,25 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
+
+const slideInMenu = keyframes`
+  from{
+    opacity: 0;
+    top: 70%;
+  }to{
+    opacity: 1;
+    top: 100%;
+  }
+`;
+
+const slideOutMenu = keyframes`
+  from{
+    opacity: 1;
+  }to{
+    opacity: 0;
+  }
+`;
+
+/*--------------------------------------------------------- */
 
 export const HeaderWrapper = styled.header`
   background: var(--color-bg-elevado);
@@ -30,7 +50,7 @@ export const Nav = styled.nav`
 `;
 
 export const ButtonMenu = styled.button`
-  visibility: hidden;
+  display: none;
   border: none;
   cursor: pointer;
   padding: var(--space-xs);
@@ -39,8 +59,17 @@ export const ButtonMenu = styled.button`
   background-color: rgba(139, 0, 0, 0.5); /* brand-primaria com 50% de alpha, só no background */
   border-radius: 4px;
 
+  transition: background-color 0.3s;
+
+  &:hover{
+    background-color: var(--color-brand-primaria);
+    span{
+      background-color: #FFFFFF;
+    }
+  }
+
   @media (max-width: 768px){
-    visibility: visible;
+    display: inline-block;
     width: 44px;
     height: 44px;
   }
@@ -81,7 +110,7 @@ export const ButtonLine = styled.span<{$aberto:boolean}>`
   }
 `;
 
-export const NavPages = styled.ul`
+export const NavPages = styled.ul<{$aberto:boolean}>`
   list-style: none;
 
   padding: 0.5rem;
@@ -89,22 +118,34 @@ export const NavPages = styled.ul`
   gap: 1rem;
 
   @media (max-width: 768px){
-      gap: 0;
+    transition: visibility 0.3s;
 
-      width: clamp(7.5rem, 40vw, 40vw);
-      flex-direction: column;
+    visibility: ${({$aberto}) => {
+      if($aberto===true) return 'visible';
+      else return 'hidden';
+    }};
 
-      position: absolute;
-      top: 100%;
-      right: 0;
+    animation: ${({$aberto}) => {
+      if($aberto) return css`${slideInMenu} 0.5s ease`;
+      if(!$aberto) return css`${slideOutMenu} 0.3s ease`;
+    }};
 
-      background-color: var(--color-bg-elevado);
-      border-bottom: 2px solid var(--color-brand-primaria);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
-      border-radius: 2px;
-    }
+    gap: 0;
+
+    width: clamp(7.5rem, 40vw, 40vw);
+    flex-direction: column;
+
+    position: absolute;
+    top: 100%;
+    right: 0;
+
+    background-color: var(--color-bg-elevado);
+    border-bottom: 2px solid var(--color-brand-primaria);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+    border-radius: 2px;
+  }
     
-    li:last-child{
+  li:last-child{
       border-bottom: none;
   }
 
