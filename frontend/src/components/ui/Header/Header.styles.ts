@@ -65,7 +65,7 @@ export const LogoImg = styled(Link)`
 
 /* NAV */
 export const Nav = styled.nav`
-  position: relative;
+  /* position: relative; */
 
   display: flex;
   gap: 1.5rem;
@@ -162,12 +162,14 @@ export const NavPages = styled.ul<{$aberto:boolean}>`
     flex-direction: column;
 
     position: absolute;
-    top: 100%;
+    top: 99%;
     right: 0;
 
     background-color: var(--color-bg-elevado);
     border-bottom: 2px solid var(--color-brand-primaria);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+    border-left: 2px solid var(--color-brand-primaria);
+    border-right: 2px solid var(--color-brand-primaria);
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.8);
     border-radius: 2px;
   }
     
