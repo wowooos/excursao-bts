@@ -22,7 +22,11 @@
   --font-size-display: 2rem;      /* 32px */
 
   /* fontes - peso */
-  --font-weight-medium: 500;
+  --font-weight-light:300;
+  --font-weight-regular:400;
+  --font-weight-medium:500;
+  --font-weight-semi-bold:600;
+  --font-weight-bold:700;
 
   /* spacing (padding, margin, gap, width, height) */
   --space-2xs: 0.25rem;  /* 4px - gaps apertados, ex: ícone + texto */

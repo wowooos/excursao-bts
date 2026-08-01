@@ -7,10 +7,11 @@
 
 html{
   scroll-behavior: smooth;
-  font-size: var(--font-size-body);
+  /* font-size: var(--font-size-body); */
 }
 
 body {
+  cursor: default;
   -webkit-font-smoothing: antialiased;
   font-family: var(--font-body);
   color: var(--color-text-primario);
