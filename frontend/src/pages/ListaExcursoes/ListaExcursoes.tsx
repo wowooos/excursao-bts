@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { excursoesService } from '../../services/excursoes.service';
 import { Excursao } from '../../types';
+
 import { TicketCard } from './TicketCard';
 import { SkeletonLista } from './SkeletonLista';
 import { ErroLista } from './ErroLista';
+
 import {
     Container,
         Lista,

@@ -37,9 +37,9 @@ export const HeaderWrapper = styled.header`
   justify-content: space-between;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
 
-  svg{
+  /* svg{
     opacity: 70%;
-  }
+  } */
 `;
 
 export const LogoImg = styled(Link)`
