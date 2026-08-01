@@ -76,7 +76,7 @@ export const Lista = styled.div`
 `;
 /**------------------------------------------------- */
 export const Ticket = styled.article<{$esgotado:boolean}>`
-  transition: border-color 0.5s ease;
+  transition: border-color 1s ease;
   display: flex;
   overflow: hidden;
 
