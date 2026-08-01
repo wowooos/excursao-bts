@@ -76,7 +76,7 @@ export const Lista = styled.div`
 `;
 /**------------------------------------------------- */
 export const Ticket = styled.article<{$esgotado:boolean}>`
-  transition: border-color 0.3s ease;
+  transition: border-color 0.5s ease;
   display: flex;
   overflow: hidden;
 
@@ -109,12 +109,15 @@ export const Ticket = styled.article<{$esgotado:boolean}>`
 
   }
 
-  @media(max-width:768px){
-    border: 1px solid var(--color-border-default);
+  @media(hover:none) and (pointer: coarse){
     &:active{
       transition: border-color 0s;
       border-color: var(--color-brand-primaria);
     }
+  }
+
+  @media(max-width:768px){
+    border: 1px solid var(--color-border-default);
   }
 `;
     export const AccentBorda = styled.span`
