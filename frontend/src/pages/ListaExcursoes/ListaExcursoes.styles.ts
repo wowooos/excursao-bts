@@ -53,6 +53,15 @@ const fadeOutButtonPacote = keyframes`
     /* transform: translateY(-5px); */
   }
 `;
+
+const pulseSkeleton = keyframes`
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+`;
 /**------------------------------------------------- */
 export const Container = styled.div`
   background: var(--color-bg-preto);
@@ -299,8 +308,11 @@ export const Ticket = styled.article<{$esgotado:boolean}>`
 
 /**------------------------------------------------- */
 
+export const SkeletonBar = styled.div<{$width:string, $height:string}>`
+  width: ${({$width}) => $width};
+  height: ${({$height}) => $height};
+  border-radius: 4px;
 
-
-
-
-
+  background-color: var(--color-border-default);
+  animation: ${pulseSkeleton} 1.5s ease-in-out infinite;
+`;

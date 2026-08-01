@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { excursoesService } from '../../services/excursoes.service';
 import { Excursao } from '../../types';
 import { TicketCard } from './TicketCard';
+import { SkeletonLista } from './SkeletonLista';
 import {
     Container,
         Lista,
@@ -26,7 +27,7 @@ export function ListaExcursoes(){
 
     }, []);
 
-    if(loading) return <div>Carregando...</div>;
+    if(loading) return <SkeletonLista/>;
     if (error) return <div>Erro: {error}</div>;
     if(!excursoes) return <div>Excursão não encontrada.</div>;
 
