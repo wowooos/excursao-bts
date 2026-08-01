@@ -9,9 +9,9 @@ export function Header() {
 
   return (
     <HeaderWrapper>
-        <LogoImg to="/">
-          <IconLogo src={iconLogo} alt="Vampi Excursões"/>
-          <TextoLogo src={textoLogo} alt='Vampi Excursões'/>
+        <LogoImg draggable="false" to="/">
+          <IconLogo src={iconLogo} draggable="false" alt="Vampi Excursões"/>
+          <TextoLogo src={textoLogo} draggable="false" alt='Vampi Excursões'/>
         </LogoImg>
 
         <Nav>
@@ -43,8 +43,8 @@ export function Header() {
             )}
             {!menuAberto && (
               <> */}
-                <ItemNav><NavLink to="/">Destinos</NavLink></ItemNav>
-                <ItemNav><NavLink to="#contato">Contato</NavLink></ItemNav>
+                <ItemNav><NavLink draggable="false" to="/">Destinos</NavLink></ItemNav>
+                <ItemNav><NavLink draggable="false" to="#contato">Contato</NavLink></ItemNav>
               {/* </>
             )} */}
           </NavPages>
