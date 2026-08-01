@@ -169,8 +169,7 @@ export const NavPages = styled.ul<{$aberto:boolean}>`
     border-bottom: 2px solid var(--color-brand-primaria);
     border-left: 2px solid var(--color-brand-primaria);
     border-right: 2px solid var(--color-brand-primaria);
-    box-shadow: 4px 4px var(--color-brand-secundaria);
-    /* box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8); */
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.8);
     border-radius: 2px;
   }
     
