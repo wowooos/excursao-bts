@@ -178,6 +178,8 @@ export const NavPages = styled.ul<{$aberto:boolean}>`
 `;
 
 export const NavLink = styled(Link)`
+  transition: color 0.3s ease;
+  
   padding: var(--space-xs);
 
   font-family: var(--font-body);
@@ -187,9 +189,9 @@ export const NavLink = styled(Link)`
   color: var(--color-text-secundario);
 
   border-bottom: 2px solid transparent;
-  transition: color 0.5s ease, border-bottom-color 0.5s ease; /** a transition se aplica tanto ao hover padrão quanto ao hover mobile */
   
   @media(hover:hover) and (pointer:fine){
+    transition: color 0.5s ease, border-bottom-color 0.5s ease; /** a transition se aplica tanto ao hover padrão quanto ao hover mobile */
     &:hover{
       color: var(--color-brand-secundaria);
       border-bottom-color: #DC143C;
@@ -205,6 +207,7 @@ export const NavLink = styled(Link)`
     align-items: center;
 
     &:active{
+      transition: color 0s;
       color: var(--color-brand-secundaria);
       border-bottom-color: transparent;
     }
