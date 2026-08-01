@@ -53,6 +53,15 @@ const fadeOutButtonPacote = keyframes`
     /* transform: translateY(-5px); */
   }
 `;
+
+const pulseSkeleton = keyframes`
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+`;
 /**------------------------------------------------- */
 export const Container = styled.div`
   background: var(--color-bg-preto);
@@ -76,6 +85,7 @@ export const Lista = styled.div`
 `;
 /**------------------------------------------------- */
 export const Ticket = styled.article<{$esgotado:boolean}>`
+  transition: border-color 1s ease;
   display: flex;
   overflow: hidden;
 
@@ -89,7 +99,7 @@ export const Ticket = styled.article<{$esgotado:boolean}>`
       '0 4px 20px rgba(139, 0, 0, 0.4)';
   }};  
 
-  transition: 0.5s ease;
+
   @media (hover:hover) and (pointer:fine){ 
     /** hover:hover -> o dispositivo consegue manter o cursor parado sobre um elemento sem "clicar" (mouse consegue, dedo não) 
     pointer:fine -> o dispositivo tem um ponteiro preciso (mouse/trackpad)
@@ -98,6 +108,7 @@ export const Ticket = styled.article<{$esgotado:boolean}>`
       !$esgotado &&
 
       css`
+          transition: 0.5s ease;
           &:hover{
             transform: scale(1.05);
             border-color: var(--color-brand-primaria);
@@ -107,11 +118,15 @@ export const Ticket = styled.article<{$esgotado:boolean}>`
 
   }
 
+  @media(hover:none) and (pointer: coarse){
+    &:active{
+      transition: border-color 0s;
+      border-color: rgba(139, 0, 0, 0.5);
+    }
+  }
+
   @media(max-width:768px){
     border: 1px solid var(--color-border-default);
-    &:active{
-      border-color: var(--color-brand-primaria);
-    }
   }
 `;
     export const AccentBorda = styled.span`
@@ -154,7 +169,7 @@ export const Ticket = styled.article<{$esgotado:boolean}>`
 
             `;
         export const PacoteExcursao = styled.div`
-          padding: 1.5rem;
+          padding: 1.5rem 1.5rem 0 1.5rem;
 
           font-size: 0.75rem;
           color: var(--color-text-secundario);
@@ -237,6 +252,8 @@ export const Ticket = styled.article<{$esgotado:boolean}>`
       `;
 
         export const BotaoReserva = styled.button<{$esgotado:boolean}>`
+          transition: background-color 0.3s ease, color 0.3s ease;
+
           background-color: var(--color-bg-elevado);
           min-height: 45px;
           width: 100%;
@@ -253,9 +270,9 @@ export const Ticket = styled.article<{$esgotado:boolean}>`
           }};
 
           border-radius: 8px;
-          transition: background-color 0.5s ease, color 0.5s ease;
-
+          
           @media(hover:hover) and (pointer:fine){
+            transition: background-color 0.5s ease, color 0.5s ease;
             ${({$esgotado}) => 
               !$esgotado &&
 
@@ -271,9 +288,18 @@ export const Ticket = styled.article<{$esgotado:boolean}>`
               if(!$esgotado) return 'pointer';
             }};
           }
+
+          @media (hover: none) and (pointer: coarse) {
+            &:active {
+              background-color: var(--color-brand-destaque);
+              color: var(--color-text-primario);
+              transition: background-color 0s, color 0s;
+            }
+          }
           
           @media(max-width:768px){
             &:active{
+              transition: background-color 0s, color 0s;
               background-color: var(--color-brand-destaque);
               color: var(--color-text-primario);
             }
@@ -282,8 +308,77 @@ export const Ticket = styled.article<{$esgotado:boolean}>`
 
 /**------------------------------------------------- */
 
+export const SkeletonBar = styled.div<{$width:string, $height:string}>`
+  width: ${({$width}) => $width};
+  height: ${({$height}) => $height};
+  border-radius: 4px;
 
+  background-color: var(--color-border-default);
+  animation: ${pulseSkeleton} 1.5s ease-in-out infinite;
+`;
 
+/**------------------------------------------------- */
 
+export const ErroWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 
+  min-height: 60vh;
+  padding: 0 1rem;
+  text-align: center;
+`;
 
+export const ErroIcone = styled.div`
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid var(--color-brand-destaque);
+  color: var(--color-brand-destaque);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  font-size: 1.5rem;
+`;
+
+export const ErroMensagem = styled.p`
+  max-width: 24rem;
+  color: var(--color-text-secundario);
+  font-size: var(--font-size-body);
+`;
+
+export const BotaoTentarNovamente = styled.button`
+  min-height: var(--touch-target-min);
+  padding: 0 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+
+  background-color: var(--color-bg-elevado);
+  border: 2px solid var(--color-brand-destaque);
+  color: var(--color-brand-destaque);
+  font-family: var(--font-display);
+
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  @media(hover:hover) and (pointer:fine){
+    transition: background-color 0.5s ease, color 0.5s ease;
+    &:hover{
+      background-color: var(--color-brand-destaque);
+      color: var(--color-text-primario);
+    }
+  }
+
+  @media(hover:none) and (pointer:coarse){
+    &:active{
+      transition: background-color 0s, color 0s;
+      background-color: var(--color-brand-destaque);
+      color: var(--color-text-primario);
+    }
+  }
+`;

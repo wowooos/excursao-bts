@@ -22,7 +22,7 @@ import {
 } from './ListaExcursoes.styles';
 
 import { formatarValorEmReais, formatarData } from '../../utils/formatters';
-import ticketImg from '../../assets/images/banner.jpg';
+import ticketImg from '../../assets/images/banner-resized.webp';
 
 //---------------------------------------------------------------------------------
 type ItensExpandidoState = 'hidden' | 'visible' | 'hiding';
@@ -94,7 +94,7 @@ export function TicketCard({ excursao }: TicketCardProps){
         <Ticket $esgotado={excursao.vagasDisponiveis<=0}>
             {/* <AccentBorda/> */}
             <Conteudo>
-                <CapaTicket src={ticketImg} alt='Capa do ticket'/>
+                <CapaTicket src={ticketImg} loading="lazy" alt='Capa do ticket'/>
                 <CorpoTicket>
                     <NomeExcursao>{excursao.nome}</NomeExcursao>
                     <DataExcursao>Saída {formatarData(excursao.dataEvento)}</DataExcursao>

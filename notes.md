@@ -1,0 +1,13 @@
+- install bun
+- frontend/
+    - rmdir nodemodules
+    - del package-lock-json
+    - bun install
+- backend/
+    - rmdir nodemodules
+    - del package-lock-json
+    - bun install
+- bun add -D node-pg-migrate
+----------------------------------------------
+- postgres must be installed
+    - bun run migrate:up

@@ -178,6 +178,8 @@ export const NavPages = styled.ul<{$aberto:boolean}>`
 `;
 
 export const NavLink = styled(Link)`
+  transition: color 0.3s ease;
+  
   padding: var(--space-xs);
 
   font-family: var(--font-body);
@@ -187,12 +189,20 @@ export const NavLink = styled(Link)`
   color: var(--color-text-secundario);
 
   border-bottom: 2px solid transparent;
-  transition: color 0.5s ease, border-bottom-color 0.5s ease; /** a transition se aplica tanto ao hover padrão quanto ao hover mobile */
   
   @media(hover:hover) and (pointer:fine){
+    transition: color 0.5s ease, border-bottom-color 0.5s ease; /** a transition se aplica tanto ao hover padrão quanto ao hover mobile */
     &:hover{
       color: var(--color-brand-secundaria);
       border-bottom-color: #DC143C;
+    }
+  }
+
+  @media(hover:none) and (pointer: coarse){
+    &:active{
+      transition: color 0s;
+      color: var(--color-brand-secundaria);
+      border-bottom-color: transparent;
     }
   }
 
@@ -203,11 +213,6 @@ export const NavLink = styled(Link)`
     display: flex;
     justify-content: center;
     align-items: center;
-
-    &:active{
-      color: var(--color-brand-secundaria);
-      border-bottom-color: transparent;
-    }
   }
 `;
 
