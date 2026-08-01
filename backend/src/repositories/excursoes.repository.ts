@@ -18,8 +18,12 @@ function mapRowToExcursao(row: any): Excursao{
 
 export const excursoesRepository = {
   async listarTodas(){
-    const { rows } = await pool.query(`SELECT id, nome, data_evento, valor_centavos, vagas_totais, vagas_disponiveis FROM excursoes`);
-    return rows ? rows.map((r)=>mapRowToExcursao(r)): null;
+    const { rows } = await pool.query(`
+      SELECT id, nome, data_evento, valor_centavos, vagas_totais, vagas_disponiveis 
+      FROM excursoes 
+      ORDER BY (vagas_disponiveis = 0) ASC, data_evento ASC
+    `);
+    return rows.map((r)=>mapRowToExcursao(r));
   },
 
   async buscarPorId(id: string): Promise<Excursao | null> {
