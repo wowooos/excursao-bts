@@ -17,6 +17,7 @@
 
   /* fontes - tamanho */
   --font-size-caption: 0.875rem;  /* 14px */
+  --font-size-default: 1rem; /* 16px */
   --font-size-body: 1.125rem;     /* 18px */
   --font-size-heading: 1.625rem;  /* 26px */
   --font-size-display: 2rem;      /* 32px */
