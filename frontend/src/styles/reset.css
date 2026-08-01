@@ -21,11 +21,6 @@ html{
   /* font-size: var(--font-size-body); */
 }
 
-html{
-  scroll-behavior: smooth;
-  /* font-size: var(--font-size-body); */
-}
-
 body {
   cursor: default;
   -webkit-font-smoothing: antialiased;

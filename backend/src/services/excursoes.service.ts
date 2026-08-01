@@ -9,6 +9,10 @@ export const excursoesService = {
 
   async listarTodas(){
     const rows = await excursoesRepository.listarTodas();
+    // rows = [{},{},{}]
+    // data { rows: [{},{},{}]}
+
+
     return rows;
   }
 };

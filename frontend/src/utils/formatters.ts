@@ -14,7 +14,7 @@ export function formatarData(dataISO: string): string {
     day: '2-digit',
     month: 'short',
     year: 'numeric',
-    timeZone: 'UTC', // <-- Adicione esta linha!
+    timeZone: 'UTC',
   }).formatToParts(data);
 
   const dia = partes.find((p) => p.type === 'day')?.value;
