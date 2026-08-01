@@ -316,3 +316,69 @@ export const SkeletonBar = styled.div<{$width:string, $height:string}>`
   background-color: var(--color-border-default);
   animation: ${pulseSkeleton} 1.5s ease-in-out infinite;
 `;
+
+/**------------------------------------------------- */
+
+export const ErroWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  min-height: 60vh;
+  padding: 0 1rem;
+  text-align: center;
+`;
+
+export const ErroIcone = styled.div`
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid var(--color-brand-destaque);
+  color: var(--color-brand-destaque);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  font-size: 1.5rem;
+`;
+
+export const ErroMensagem = styled.p`
+  max-width: 24rem;
+  color: var(--color-text-secundario);
+  font-size: var(--font-size-body);
+`;
+
+export const BotaoTentarNovamente = styled.button`
+  min-height: var(--touch-target-min);
+  padding: 0 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+
+  background-color: var(--color-bg-elevado);
+  border: 2px solid var(--color-brand-destaque);
+  color: var(--color-brand-destaque);
+  font-family: var(--font-display);
+
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  @media(hover:hover) and (pointer:fine){
+    transition: background-color 0.5s ease, color 0.5s ease;
+    &:hover{
+      background-color: var(--color-brand-destaque);
+      color: var(--color-text-primario);
+    }
+  }
+
+  @media(hover:none) and (pointer:coarse){
+    &:active{
+      transition: background-color 0s, color 0s;
+      background-color: var(--color-brand-destaque);
+      color: var(--color-text-primario);
+    }
+  }
+`;
