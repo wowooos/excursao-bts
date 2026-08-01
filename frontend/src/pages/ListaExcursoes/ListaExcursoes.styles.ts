@@ -237,6 +237,8 @@ export const Ticket = styled.article<{$esgotado:boolean}>`
       `;
 
         export const BotaoReserva = styled.button<{$esgotado:boolean}>`
+          transition: background-color 0.3s ease, color 0.3s ease;
+
           background-color: var(--color-bg-elevado);
           min-height: 45px;
           width: 100%;
@@ -253,9 +255,9 @@ export const Ticket = styled.article<{$esgotado:boolean}>`
           }};
 
           border-radius: 8px;
-          transition: background-color 0.5s ease, color 0.5s ease;
-
+          
           @media(hover:hover) and (pointer:fine){
+            transition: background-color 0.5s ease, color 0.5s ease;
             ${({$esgotado}) => 
               !$esgotado &&
 
@@ -274,6 +276,7 @@ export const Ticket = styled.article<{$esgotado:boolean}>`
           
           @media(max-width:768px){
             &:active{
+              transition: background-color 0s, color 0s;
               background-color: var(--color-brand-destaque);
               color: var(--color-text-primario);
             }
