@@ -10,6 +10,7 @@ export function formatarValorEmReais(valorCentavos: number): string {
 export function formatarData(dataISO: string): string {
   const data = new Date(dataISO);
   const partes = new Intl.DateTimeFormat('pt-BR', {
+    weekday: 'short',
     day: '2-digit',
     month: 'short',
     year: 'numeric',
@@ -18,6 +19,9 @@ export function formatarData(dataISO: string): string {
   const dia = partes.find((p) => p.type === 'day')?.value;
   const mes = partes.find((p) => p.type === 'month')?.value.replace('.', '');
   const ano = partes.find((p) => p.type === 'year')?.value;
+  const diaSemanaBruto = partes.find((p) => p.type === 'weekday')?.value.replace('.', '') || '';
 
-  return `${dia} ${mes} ${ano}`;
+  const diaSemana = diaSemanaBruto?.charAt(0).toUpperCase() + diaSemanaBruto?.slice(1);
+
+  return `${dia} ${mes} ${ano} — ${diaSemana}`;
 }

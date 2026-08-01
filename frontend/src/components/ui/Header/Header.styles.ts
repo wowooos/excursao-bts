@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import styled, { keyframes, css } from 'styled-components';
 
+/** KEYFRAMES */
+
 const slideInMenu = keyframes`
   from{
     opacity: 0;
@@ -18,30 +20,50 @@ const slideOutMenu = keyframes`
     opacity: 0;
   }
 `;
-
 /*--------------------------------------------------------- */
 
 export const HeaderWrapper = styled.header`
   background: var(--color-bg-elevado);
-  padding: 1.5rem;
+  padding: 0 var(--space-sm);
   display: flex;
   
   position: sticky;
   top: 0;
-  
+  z-index: 1000;
+
   border-bottom: 2px solid var(--color-brand-primaria);
 
   align-items: center;
   justify-content: space-between;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+
+  svg{
+    opacity: 70%;
+  }
 `;
 
-export const NomeSite = styled(Link)`
-  font-family: var(--font-display);
-  font-size: var(--font-size-heading);
-  color: var(--color-text-primario);
+export const LogoImg = styled(Link)`
+  display: flex;
 `;
+  export const IconLogo = styled.img`
+    height: 6.25rem;
+    width: auto;
 
-/* nav */
+    @media(max-width:768px){
+      height: 4rem;
+    }
+  `;
+
+  export const TextoLogo = styled.img`
+    height: 6.25rem;
+    width: auto;
+
+    @media(max-width:768px){
+      height: 4rem;
+    }
+  `;
+
+/* NAV */
 export const Nav = styled.nav`
   position: relative;
 
@@ -61,10 +83,12 @@ export const ButtonMenu = styled.button`
 
   transition: background-color 0.3s;
 
-  &:hover{
-    background-color: var(--color-brand-primaria);
-    span{
-      background-color: #FFFFFF;
+  @media(hover:hover) and (pointer:fine){
+    &:hover{
+      background-color: var(--color-brand-primaria);
+      span{
+        background-color: #FFFFFF;
+      }
     }
   }
 
@@ -115,6 +139,8 @@ export const NavPages = styled.ul<{$aberto:boolean}>`
 
   padding: 0.5rem;
   display:flex;
+  /* flex-direction: column; */
+
   gap: 0.5rem;
 
   @media (max-width: 768px){
@@ -162,9 +188,12 @@ export const NavLink = styled(Link)`
 
   border-bottom: 2px solid transparent;
   transition: color 0.5s ease, border-bottom-color 0.5s ease; /** a transition se aplica tanto ao hover padrão quanto ao hover mobile */
-  &:hover{
-    color: var(--color-brand-secundaria);
-    border-bottom-color: #DC143C;
+  
+  @media(hover:hover) and (pointer:fine){
+    &:hover{
+      color: var(--color-brand-secundaria);
+      border-bottom-color: #DC143C;
+    }
   }
 
   @media (max-width: 768px){
@@ -175,7 +204,7 @@ export const NavLink = styled(Link)`
     justify-content: center;
     align-items: center;
 
-    &:hover{
+    &:active{
       color: var(--color-brand-secundaria);
       border-bottom-color: transparent;
     }
@@ -183,12 +212,15 @@ export const NavLink = styled(Link)`
 `;
 
 export const ItemNav = styled.li`
+  /* display: flex;
+  align-items: center;
+  gap: 0.5rem; */
+
   @media (max-width: 768px){
     border-bottom: 2px solid var(--color-border-default);
     
     &:last-child{
       border-bottom: 2px solid transparent;
     }
-
   }
 `;
