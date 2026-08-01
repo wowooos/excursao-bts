@@ -112,7 +112,7 @@ export const Ticket = styled.article<{$esgotado:boolean}>`
   @media(hover:none) and (pointer: coarse){
     &:active{
       transition: border-color 0s;
-      border-color: var(--color-brand-primaria);
+      border-color: rgba(139, 0, 0, 0.5);
     }
   }
 
