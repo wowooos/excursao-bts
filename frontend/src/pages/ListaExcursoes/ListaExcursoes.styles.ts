@@ -154,7 +154,7 @@ export const Ticket = styled.article<{$esgotado:boolean}>`
 
             `;
         export const PacoteExcursao = styled.div`
-          padding: 1.5rem;
+          padding: 1.5rem 1.5rem 0 1.5rem;
 
           font-size: 0.75rem;
           color: var(--color-text-secundario);
