@@ -198,6 +198,14 @@ export const NavLink = styled(Link)`
     }
   }
 
+  @media(hover:none) and (pointer: coarse){
+    &:active{
+      transition: color 0s;
+      color: var(--color-brand-secundaria);
+      border-bottom-color: transparent;
+    }
+  }
+
   @media (max-width: 768px){
     padding: 0;
     min-height: 45px;
@@ -205,12 +213,6 @@ export const NavLink = styled(Link)`
     display: flex;
     justify-content: center;
     align-items: center;
-
-    &:active{
-      transition: color 0s;
-      color: var(--color-brand-secundaria);
-      border-bottom-color: transparent;
-    }
   }
 `;
 

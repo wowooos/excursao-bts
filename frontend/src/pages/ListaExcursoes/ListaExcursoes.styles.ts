@@ -273,6 +273,14 @@ export const Ticket = styled.article<{$esgotado:boolean}>`
               if(!$esgotado) return 'pointer';
             }};
           }
+
+          @media (hover: none) and (pointer: coarse) {
+            &:active {
+              background-color: var(--color-brand-destaque);
+              color: var(--color-text-primario);
+              transition: background-color 0s, color 0s;
+            }
+          }
           
           @media(max-width:768px){
             &:active{
