@@ -66,7 +66,7 @@ const pulseSkeleton = keyframes`
 export const Container = styled.div`
   background: var(--color-bg-preto);
   min-height: 100vh;
-  padding: 1.5rem 1rem;
+  padding: 3rem 1rem;
 
   svg{
     width: 18px;
