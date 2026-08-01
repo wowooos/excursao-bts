@@ -1,22 +1,11 @@
-
 import { useEffect, useState } from 'react';
 import { excursoesService } from '../../services/excursoes.service';
 import { Excursao } from '../../types';
+import { TicketCard } from './TicketCard';
 import {
     Container,
-    Titulo,
-    Lista,
-    TicketCard,
-    CorpoTicket,
-    NomeExcursao,
-    InfoSecundaria,
-    Divisoria,
-    Canhoto,
-    LabelCanhoto,
-    ValorVagas,
-    Preco,
+        Lista,
 } from './ListaExcursoes.styles';
-import { formatarValorEmReais, formatarData } from '../../utils/formatters';
 
 export function ListaExcursoes(){
     const [excursoes, setExcursoes] = useState<Excursao[] | null>(null);
@@ -43,25 +32,9 @@ export function ListaExcursoes(){
 
     return(
     <Container>
-        <Titulo>Escolha sua data</Titulo>
         <Lista>
             {excursoes.map((excursao) => (
-                <TicketCard key={excursao.id}>
-                    <CorpoTicket>
-                        <NomeExcursao>{excursao.nome}</NomeExcursao>
-                        <InfoSecundaria>{formatarData(excursao.dataEvento)}</InfoSecundaria>
-                    </CorpoTicket>
-
-                    <Divisoria>
-                    </Divisoria>
-
-                    <Canhoto>
-                        <LabelCanhoto>vagas</LabelCanhoto>
-                        <ValorVagas>{excursao.vagasDisponiveis}</ValorVagas>
-                        <LabelCanhoto>de {excursao.vagasTotais}</LabelCanhoto>
-                        <Preco>{formatarValorEmReais(excursao.valorCentavos)}</Preco>
-                    </Canhoto>
-                </TicketCard>
+                <TicketCard excursao={excursao} key={excursao.id}></TicketCard>
             ))}
         </Lista>
     </Container>

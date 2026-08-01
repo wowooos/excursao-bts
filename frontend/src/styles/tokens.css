@@ -1,11 +1,14 @@
 /* src/styles/tokens.css */
 :root {
   /* cores */
-  --color-bg: #1B1730;
-  --color-ticket: #FBF3E7;
-  --color-accent: #6B46E0;
-  --color-cta: #F2A93B;
-  --color-text-muted: #6E6580;
+  --color-bg-preto: #0A0A0A;
+  --color-bg-elevado: #1A1A1A;
+  --color-border-default: #333333;
+  --color-text-secundario: #CCCCCC;
+  --color-text-primario: #FFFFFF;
+  --color-brand-primaria: #8B0000;
+  --color-brand-secundaria: #DC143C;
+  --color-brand-destaque: #FF4444;
 
   /* fontes */
   --font-display: 'Space Grotesk', sans-serif;
@@ -13,10 +16,17 @@
   --font-mono: 'IBM Plex Mono', monospace;
 
   /* fontes - tamanho */
-  --font-size-caption: 0.75rem;  /* 12px - labels pequenos, tipo "vagas" */
-  --font-size-body: 0.875rem;    /* 14px - texto padrão */
-  --font-size-heading: 1.25rem;  /* 20px - títulos de card/seção */
-  --font-size-display: 1.5rem;   /* 24px - título grande da página */
+  --font-size-caption: 0.875rem;  /* 14px */
+  --font-size-body: 1.125rem;     /* 18px */
+  --font-size-heading: 1.625rem;  /* 26px */
+  --font-size-display: 2rem;      /* 32px */
+
+  /* fontes - peso */
+  --font-weight-light:300;
+  --font-weight-regular:400;
+  --font-weight-medium:500;
+  --font-weight-semi-bold:600;
+  --font-weight-bold:700;
 
   /* spacing (padding, margin, gap, width, height) */
   --space-2xs: 0.25rem;  /* 4px - gaps apertados, ex: ícone + texto */
