@@ -76,6 +76,7 @@ export const Lista = styled.div`
 `;
 /**------------------------------------------------- */
 export const Ticket = styled.article<{$esgotado:boolean}>`
+  transition: border-color 0.3s ease;
   display: flex;
   overflow: hidden;
 
@@ -89,7 +90,7 @@ export const Ticket = styled.article<{$esgotado:boolean}>`
       '0 4px 20px rgba(139, 0, 0, 0.4)';
   }};  
 
-  transition: 0.5s ease;
+
   @media (hover:hover) and (pointer:fine){ 
     /** hover:hover -> o dispositivo consegue manter o cursor parado sobre um elemento sem "clicar" (mouse consegue, dedo não) 
     pointer:fine -> o dispositivo tem um ponteiro preciso (mouse/trackpad)
@@ -98,6 +99,7 @@ export const Ticket = styled.article<{$esgotado:boolean}>`
       !$esgotado &&
 
       css`
+          transition: 0.5s ease;
           &:hover{
             transform: scale(1.05);
             border-color: var(--color-brand-primaria);
@@ -110,6 +112,7 @@ export const Ticket = styled.article<{$esgotado:boolean}>`
   @media(max-width:768px){
     border: 1px solid var(--color-border-default);
     &:active{
+      transition: border-color 0s;
       border-color: var(--color-brand-primaria);
     }
   }
