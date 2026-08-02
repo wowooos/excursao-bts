@@ -57,9 +57,9 @@ export const ContatoItem = styled.div`
     align-items: center;
 
     p{
-        outline: none; /** iphone */
         cursor: text;
         user-select: text; /* reabilita seleção só onde o usuário PRECISA editar texto */
+        -webkit-user-select: text; 
         -webkit-touch-callout: default;
     }
 `;
