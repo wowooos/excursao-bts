@@ -242,9 +242,8 @@ export const Ticket = styled.article<{$esgotado:boolean}>`
             color: ${({$esgotado}) => {
               return $esgotado ?
                 'rgba(255, 255, 255, 0.4)':
-                'var(--color-text-primario)'
+                'var(--color-text-primario)';
             }}
-
           `;
 
       export const AreaBotao = styled.div`
@@ -275,7 +274,6 @@ export const Ticket = styled.article<{$esgotado:boolean}>`
             transition: background-color 0.5s ease, color 0.5s ease;
             ${({$esgotado}) => 
               !$esgotado &&
-
               css`
                 &:hover{
                   background-color: var(--color-brand-destaque);
@@ -290,19 +288,17 @@ export const Ticket = styled.article<{$esgotado:boolean}>`
           }
 
           @media (hover: none) and (pointer: coarse) {
-            &:active {
-              background-color: var(--color-brand-destaque);
-              color: var(--color-text-primario);
-              transition: background-color 0s, color 0s;
-            }
-          }
-          
-          @media(max-width:768px){
-            &:active{
-              transition: background-color 0s, color 0s;
-              background-color: var(--color-brand-destaque);
-              color: var(--color-text-primario);
-            }
+            ${({$esgotado}) => 
+              !$esgotado &&
+            
+            css`
+                &:active {
+                  transition: background-color 0s, color 0s;
+                  background-color: var(--color-brand-destaque);
+                  color: var(--color-text-primario);
+                }
+              `
+            };
           }
         `;
 

@@ -55,4 +55,11 @@ export const ContatoItem = styled.div`
     display: flex;
     gap: 0.5rem;
     align-items: center;
+
+    p{
+        cursor: text;
+        user-select: text; /* reabilita seleção só onde o usuário PRECISA editar texto */
+        -webkit-user-select: text; 
+        -webkit-touch-callout: default;
+    }
 `;
