@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { Layout } from './components/ui/Layout/Layout';
 import { ListaExcursoes } from './pages/ListaExcursoes/ListaExcursoes';
-import { Landing } from './pages/Landing/Landing';
+import { DetalhesExcursao } from './pages/DetalhesExcursao/DetalhesExcursao';
 import { AceiteContrato } from './pages/AceiteContrato/AceiteContrato';
 import { Checkout } from './pages/Checkout/Checkout';
 import { Confirmacao } from './pages/Confirmacao/Confirmacao';
@@ -15,7 +15,7 @@ export function App() {
       <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<ListaExcursoes />} />
-            {/* <Route path="/" element={<Landing excursaoId={EXCURSAO_ID} />} /> */}
+            <Route path="/excursoes/:id" element={<DetalhesExcursao />} />
             <Route path="/aceite-contrato" element={<AceiteContrato excursaoId={EXCURSAO_ID} />} />
             <Route path="/checkout/:reservaId" element={<Checkout reservaId="" />} />
             <Route path="/confirmacao/:reservaId" element={<Confirmacao reservaId="" />} />

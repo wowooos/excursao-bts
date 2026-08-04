@@ -1,29 +1,35 @@
-// Corresponde ao frame "Landing - Excursão BTS" no Figma.
+
 // Busca a excursão pelo id e mostra o resumo antes de partir pro fluxo de reserva.
 import { useEffect, useState } from 'react';
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+
 import { Excursao } from '../../types';
 import { excursoesService } from '../../services/excursoes.service';
 import { Button } from '../../components/ui/Button';
 
-export function Landing({ excursaoId }: { excursaoId: string }) {
+export function DetalhesExcursao() {
+  const { id } = useParams<{ id: string }>();
+
   const [excursao, setExcursao] = useState<Excursao | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!id) return;
+    
     setLoading(true);
     setError(null);
 
-    excursoesService.buscarDetalhes(excursaoId).then(setExcursao)
+    excursoesService.buscarDetalhes(id).then(setExcursao)
     .catch((e: Error) => {
       setError(e.message);
     })
     .finally(() => {
       setLoading(false);
     });
-  }, [excursaoId]);
+  }, [id]);
 
+  if(!id) return <div>Excursão não encontrada.</div>
   if(loading) return <div>Carregando...</div>;
   if (error) return <div>Erro: {error}</div>;
   if(!excursao) return <div>Excursão não encontrada.</div>;
