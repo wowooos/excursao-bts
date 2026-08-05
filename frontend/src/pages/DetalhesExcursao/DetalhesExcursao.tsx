@@ -94,7 +94,7 @@ export function DetalhesExcursao() {
         
         <Informacoes>
           <InfosDetalhadas>
-            <Accordion open>
+            <Accordion>
               <AccordionResumo>
                 ROTEIRO
                 <Seta className="seta">▾</Seta>
