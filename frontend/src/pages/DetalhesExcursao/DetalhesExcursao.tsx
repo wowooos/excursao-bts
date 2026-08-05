@@ -52,6 +52,9 @@ import {
       BotaoReservar,
 } from './DetalhesExcursao.styles';
 
+import { SkeletonDetalhes } from './SkeletonDetalhes';
+import { ErroDetalhes } from './ErroDetalhes';
+
 export function DetalhesExcursao() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -62,7 +65,7 @@ export function DetalhesExcursao() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
+  const carregarExcursao = () => {
     if (!id) return;
 
     setLoading(true);
@@ -70,17 +73,22 @@ export function DetalhesExcursao() {
 
     excursoesService.buscarDetalhes(id).then(setExcursao)
     .catch((e: Error) => {
-      setError(e.message);
+      console.error(e);
+      setError('Não foi possível carregar a excursão agora.');
     })
     .finally(() => {
       setLoading(false);
     });
-  }, [id]);
+  }
 
-  if (!id) return <div>Excursão não encontrada.</div>;
-  if (loading) return <div>Carregando...</div>;
-  if (error) return <div>Erro: {error}</div>;
-  if (!excursao) return <div>Excursão não encontrada.</div>;
+  useEffect(() => {
+    carregarExcursao();
+  }, []);
+
+  if (!id) return <ErroDetalhes mensagem='Excursão não encontrada' onTentarNovamente={carregarExcursao}/>;
+  if (loading) return <SkeletonDetalhes/>;
+  if (error) return <ErroDetalhes mensagem={error} onTentarNovamente={carregarExcursao} />;
+  if (!excursao) return <ErroDetalhes mensagem='Excursão não encontrada' onTentarNovamente={carregarExcursao}/>;
 
   const esgotado = excursao.vagasDisponiveis <= 0;
 
@@ -94,7 +102,7 @@ export function DetalhesExcursao() {
         
         <Informacoes>
           <InfosDetalhadas>
-            <Accordion>
+            <Accordion open>
               <AccordionResumo>
                 ROTEIRO
                 <Seta className="seta">▾</Seta>
@@ -150,7 +158,7 @@ export function DetalhesExcursao() {
               </AccordionConteudo>
             </Accordion>
             
-            <Accordion>
+            <Accordion open>
               <AccordionResumo>
                 O QUE INCLUI
                 <Seta className="seta">▾</Seta>
