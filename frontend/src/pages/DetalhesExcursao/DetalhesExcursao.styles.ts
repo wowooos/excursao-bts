@@ -2,38 +2,13 @@
 import styled, { css, keyframes } from 'styled-components';
 
 /** KEYFRAMES ------------------------------------------------- */
-const slideIn = keyframes`
-    from{
-        opacity: 0;
-        max-height: 0;
-        transform: translateY(100%);
-        visibility: visible;
-    }to{
-        opacity: 1;
-        max-height: 100%;
-        transform: translateX(0);
-        visibility: visible;
+const pulseSkeleton = keyframes`
+    0%, 100%{
+        opacity: 0.4;
+    }50%{
+        opacity: 0.8;
     }
 `;
-
-const slideOut = keyframes`
-  from {
-    opacity: 1;
-    max-height: 100px;
-    transform: translateY(0);
-    visibility: visible;
-  }
-  to {
-    opacity: 0;
-    max-height: 0;
-    transform: translateY(-100%);
-    visibility: hidden; /* Oculta ao final do slideOut */
-  }
-`;
-
-
-
-
 
 /** CONTAINER ------------------------------------------------- */
 export const Container = styled.div`
@@ -41,11 +16,10 @@ export const Container = styled.div`
     background: var(--color-bg-preto);
     min-height: 100vh;
     padding: var(--space-lg) 0 0;
-    /* padding-bottom maior pra sobrar espaço abaixo da BarraFixa, mesmo expandida */
 
     display: flex;
     flex-direction: column;
-    /* gap: var(--space-lg); */
+    gap: var(--space-lg);
 `;
 
 export const Conteudo = styled.div`
@@ -473,5 +447,82 @@ export const BotaoReservar = styled.button<{ $esgotado?: boolean }>`
           background-color: var(--color-brand-secundaria);
         }
       `}
+  }
+`;
+
+/** SKELETON-------------------------------------------------------------------------------- */
+
+export const SkeletonBar = styled.div<{$width:string, $height:string}>`
+  width: ${({$width}) => $width};
+  height: ${({$height}) => $height};
+  border-radius: 4px;
+
+  background-color: var(--color-border-default);
+  animation: ${pulseSkeleton} 1.5s ease-in-out infinite;
+`;
+
+/** ERRO----------------------------------------------------------- */
+
+export const ErroWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  min-height: 60vh;
+  padding: 0 1rem;
+  text-align: center;
+`;
+
+export const ErroIcone = styled.div`
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid var(--color-brand-destaque);
+  color: var(--color-brand-destaque);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  font-size: 1.5rem;
+`;
+
+export const ErroMensagem = styled.p`
+  max-width: 24rem;
+  color: var(--color-text-secundario);
+  font-size: var(--font-size-body);
+`;
+
+export const BotaoTentarNovamente = styled.button`
+  min-height: var(--touch-target-min);
+  padding: 0 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+
+  background-color: var(--color-bg-elevado);
+  border: 2px solid var(--color-brand-destaque);
+  color: var(--color-brand-destaque);
+  font-family: var(--font-display);
+
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  @media(hover:hover) and (pointer:fine){
+    transition: background-color 0.5s ease, color 0.5s ease;
+    &:hover{
+      background-color: var(--color-brand-destaque);
+      color: var(--color-text-primario);
+    }
+  }
+
+  @media(hover:none) and (pointer:coarse){
+    &:active{
+      transition: background-color 0s, color 0s;
+      background-color: var(--color-brand-destaque);
+      color: var(--color-text-primario);
+    }
   }
 `;
