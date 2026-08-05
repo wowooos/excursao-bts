@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Excursao } from '../../types';
 
@@ -22,6 +23,7 @@ import {
 } from './ListaExcursoes.styles';
 
 import { formatarValorEmReais, formatarData } from '../../utils/formatters';
+
 import ticketImg from '../../assets/images/banner-resized.webp';
 
 //---------------------------------------------------------------------------------
@@ -34,7 +36,7 @@ type TicketCardProps = {
 }
 //---------------------------------------------------------------------------------
 export function TicketCard({ excursao }: TicketCardProps){
-
+    const navigate = useNavigate();
     const [itensExpandidoState, setItensExpandidoState] = useState<ItensExpandidoState>('hidden');
     
     const itensPrincipais: ItemPacote[] = [
@@ -155,7 +157,12 @@ export function TicketCard({ excursao }: TicketCardProps){
 
                 <AreaBotao>
                         {excursao.vagasDisponiveis > 0 && (
-                            <BotaoReserva $esgotado={excursao.vagasDisponiveis<=0}>MAIS DETALHES</BotaoReserva>
+                            <BotaoReserva 
+                                onClick={() => navigate(`/excursoes/${excursao.id}`)}
+                                $esgotado={excursao.vagasDisponiveis<=0}
+                            >
+                                MAIS DETALHES
+                            </BotaoReserva>
                         )}
                         {excursao.vagasDisponiveis <= 0 && (
                             <BotaoReserva $esgotado={excursao.vagasDisponiveis<=0}>ESGOTADO</BotaoReserva>
