@@ -13,8 +13,8 @@ import {
 
 export function ListaExcursoes(){
     const [excursoes, setExcursoes] = useState<Excursao[] | null>(null);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState<string | null>("Failed to fetch!");
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
     const carregarExcursoes = () => {
         setLoading(true);
@@ -36,7 +36,7 @@ export function ListaExcursoes(){
 
     if(loading) return <SkeletonLista />;
     if (error) return <ErroLista mensagem={error} onTentarNovamente={carregarExcursoes} />;
-    if(!excursoes) return <div>Excursão não encontrada.</div>;
+    if(!excursoes) return <ErroLista mensagem='Excursão não encontrada.' onTentarNovamente={carregarExcursoes}/>;
 
     return(
     <Container>
