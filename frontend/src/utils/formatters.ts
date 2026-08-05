@@ -26,3 +26,13 @@ export function formatarData(dataISO: string): string {
 
   return `${dia} ${mes} ${ano} — ${diaSemana}`;
 }
+
+export function formatarDataDefault(dataISO: string): string {
+  const data = new Date(dataISO);
+  return new Intl.DateTimeFormat('pt-BR', {
+    day: '2-digit',
+    month: '2-digit',
+    year: '2-digit',
+    timeZone: 'UTC',
+  }).format(data);
+}
