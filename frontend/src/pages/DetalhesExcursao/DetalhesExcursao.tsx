@@ -23,6 +23,8 @@ import {
       InfosDetalhadas,
         Accordion,
           AccordionResumo,
+            TituloComIcone,
+            IconeAtencao,
             Seta,
           AccordionConteudo,
             Linha,
@@ -102,7 +104,7 @@ export function DetalhesExcursao() {
         
         <Informacoes>
           <InfosDetalhadas>
-            <Accordion open>
+            <Accordion >
               <AccordionResumo>
                 ROTEIRO
                 <Seta className="seta">▾</Seta>
@@ -158,7 +160,7 @@ export function DetalhesExcursao() {
               </AccordionConteudo>
             </Accordion>
             
-            <Accordion open>
+            <Accordion >
               <AccordionResumo>
                 O QUE INCLUI
                 <Seta className="seta">▾</Seta>
@@ -184,6 +186,36 @@ export function DetalhesExcursao() {
                   Trabalhamos com empresas renomadas, com veículos legalizados, regulamentados e
                   segurados.
                 </NotaEmpresas>
+              </AccordionConteudo>
+            </Accordion>
+
+            <Accordion >
+              <AccordionResumo className='avisoImportante'>
+                <TituloComIcone>
+                  <IconeAtencao aria-hidden="true">!</IconeAtencao>
+                  VIAGEM DE MENORES DE IDADE
+                </TituloComIcone>
+                <Seta className="seta">▾</Seta>
+              </AccordionResumo>
+              <AccordionConteudo>
+                <ImportanteBox>
+                  Visando o cumprimento da legislação vigente e a segurança de todos os passageiros, informamos as seguintes regras para o embarque de menores de idade:
+                  <br/>
+                  <br/>
+                  <strong>Adolescentes de 16 e 17 anos:</strong>
+                  Poderão viajar desacompanhados <strong>somente mediante apresentação de Autorização de Viagem válida</strong>, assinada pelos pais ou responsáveis legais, permitindo a viagem desacompanhada ao destino. Também poderão viajar acompanhados pelos pais, responsáveis legais ou por um maior de idade devidamente autorizado.
+                  <br/>
+                  <br/>
+                  <strong>Menores de 16 anos (15 anos ou menos):</strong>
+                  Poderão viajar <strong>exclusivamente acompanhados pelos pais ou responsáveis legais</strong>, ou por um acompanhante maior de 18 anos que esteja portando a <strong>Autorização de Viagem</strong> assinada pelos pais ou responsáveis legais, conforme exigido pela legislação.
+                  <br/>
+                  <br/>
+                  Importante:
+                  A apresentação da documentação obrigatória é de responsabilidade do passageiro e/ou de seus responsáveis. A ausência dos documentos exigidos poderá impedir o embarque, sem direito a reembolso, conforme as normas legais aplicáveis.
+                  <br/>
+                  <br/>
+                  Em caso de dúvidas sobre a documentação necessária, entre em contato com nossa equipe antes da data da viagem.
+                </ImportanteBox>
               </AccordionConteudo>
             </Accordion>
           </InfosDetalhadas>

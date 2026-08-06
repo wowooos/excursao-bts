@@ -149,9 +149,10 @@ export function TicketCard({ excursao }: TicketCardProps){
                         
                     </div>
                 
-                    <div>
-                        <LabelCanhoto>valor</LabelCanhoto>
-                        <ValorCanhoto $esgotado={excursao.vagasDisponiveis<=0}>{formatarValorEmReais(excursao.valorCentavos)}</ValorCanhoto>
+                    <div className='precoReserva'>
+                        <LabelCanhoto className='labelPreco'>a partir de</LabelCanhoto>
+                        <ValorCanhoto className='valorPreco' $esgotado={excursao.vagasDisponiveis<=0}>{formatarValorEmReais(excursao.valorCentavos)}</ValorCanhoto>
+                        <LabelCanhoto className='avisoPreco'>/por pessoa</LabelCanhoto>
                     </div>
                 </Canhoto>
 

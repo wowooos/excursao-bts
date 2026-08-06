@@ -221,15 +221,75 @@ export const Ticket = styled.article<{$esgotado:boolean}>`
         export const Canhoto = styled.div`
           padding: 1.5rem;
           display: flex;
-
           justify-content: space-between;
           gap: 2rem;
 
-          div{
+          flex-wrap: wrap;
+
+          & > div{
             display: flex;
             flex-direction: column;
             gap: 0.2rem;
+
+            /* flex-basis: 50%; */
+            flex-shrink: 0;
+            flex-grow: 1;
           }
+
+          .precoReserva{
+            flex-grow: 0;
+            flex-basis: 170px;
+
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            span{
+              flex-shrink: 0;
+            }
+
+            .labelPreco{
+              flex-basis: 160px;
+              /* text-align: right;
+
+              @media(max-width:768px){
+                text-align: left;
+              } */
+            }
+          }
+
+          /* .precoReserva{
+            flex-direction: row;
+            flex-wrap: wrap;
+            flex-grow: 0;
+            justify-content: flex-end;
+
+            .labelPreco{
+              flex-basis: 50%;
+              text-align: right;
+            }
+          } */
+
+          /* .precoReserva{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(90px,1fr));
+            grid-template-areas: 
+              'labelPreco labelPreco'
+              'preco aviso' 
+            ;
+
+            .labelPreco{
+              grid-area: labelPreco;
+            }
+
+            .valorPreco{
+              grid-area: preco;
+            }
+
+            .avisoPreco{
+              grid-area: aviso;
+            }
+          } */
         `;
           export const LabelCanhoto = styled.span`
             font-size: var(--font-size-caption);
@@ -243,7 +303,7 @@ export const Ticket = styled.article<{$esgotado:boolean}>`
               return $esgotado ?
                 'rgba(255, 255, 255, 0.4)':
                 'var(--color-text-primario)';
-            }}
+            }};
           `;
 
       export const AreaBotao = styled.div`
