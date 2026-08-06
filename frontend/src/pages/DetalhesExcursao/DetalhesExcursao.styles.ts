@@ -169,6 +169,12 @@ export const AccordionResumo = styled.summary`
   &::-webkit-details-marker {
     display: none;
   }
+
+  &.avisoImportante{
+    /* color: rgba(220,20,60,0.8); */
+    color: rgba(255,68,68,0.9);
+    padding: var(--space-sm);
+  }
 `;
 
 export const Seta = styled.span`
@@ -310,6 +316,39 @@ export const NotaEmpresas = styled.p`
   font-size: var(--font-size-caption);
   color: var(--color-text-secundario);
   font-style: italic;
+`;
+
+/** AVISO IMPORTANTE -----------------------------------------------------*/
+
+export const TituloComIcone = styled.span`
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+`;
+
+// export const IconeAtencao = styled.span`
+//   flex-shrink: 0;
+//   color: var(--color-brand-destaque);
+//   font-size: var(--font-size-caption);
+//   font-weight: var(--font-weight-light);
+//   line-height: 1;
+// `;
+
+export const IconeAtencao = styled.span`
+  width: 1.75rem;
+  height: 1.75rem;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem;
+
+  background: color-mix(in srgb, var(--color-brand-destaque) 15%, transparent);
+  color: var(--color-brand-destaque);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-caption);
 `;
 
 /** BARRA FIXA ------------------------------------------------- */
